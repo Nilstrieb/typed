@@ -1,3 +1,5 @@
+mod count;
+
 fn main() {
-    println!("Hello, world!");
+    count::count();
 }
