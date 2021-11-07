@@ -1,25 +1,4 @@
-use std::marker::PhantomData;
-
-trait Nat {
-    fn int() -> i32;
-}
-
-struct Z;
-
-impl Nat for Z {
-    fn int() -> i32 {
-        0
-    }
-}
-
-struct S<N: Nat>(PhantomData<N>);
-
-impl<N: Nat> Nat for S<N> {
-    fn int() -> i32 {
-        N::int() + 1
-    }
-}
-
+use crate::helper::{Nat, S, Z};
 
 trait Count: Nat {
     fn count() -> String;
